@@ -10,7 +10,7 @@ import lombok.SneakyThrows;
 
 public class Login {
 
-    /*
+    /**
      * DataBase @dataB object DataB
      * initial 2 sections
      * 1 - sign in -> signIn()
