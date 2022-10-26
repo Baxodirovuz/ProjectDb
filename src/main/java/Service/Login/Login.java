@@ -3,8 +3,10 @@ package Service.Login;
 import java.util.Scanner;
 
 import DB.DataB;
+import Essence.Update;
 import Object.*;
 import Service.InitialSection;
+import lombok.SneakyThrows;
 
 public class Login {
 
@@ -20,6 +22,7 @@ public class Login {
 
     private final DataB dataB = DataB.getDataB();
     private final InitialSection initialSection = InitialSection.getSection();
+    private final Update update = Update.getUpdate();
 
     public void initial() {
         System.out.println(" <1> Sign in");
@@ -35,6 +38,7 @@ public class Login {
         }
     }
 
+    @SneakyThrows
     public void signUp() {
         Scanner scanner = new Scanner(System.in);
         User userUp = new User();
@@ -65,6 +69,7 @@ public class Login {
         System.out.print("Enter your job: ");
         userUp.setJobs(scanner.nextLine());
         dataB.users.add(userUp);
+        update.addUser(userUp);
         initial();            // go to the main section
     }
 
