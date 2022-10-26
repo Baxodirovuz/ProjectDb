@@ -7,8 +7,17 @@ import Object.*;
 
 public class Login {
 
-    private DataB dataB = DataB.getDataB();
-    private User userUp = new User();
+    /*
+    * DataBase @dataB object DataB
+    * initial 2 sections
+    * 1 - sign in -> signIn()
+    * 2 - sign up -> signUp()
+    * default repeat method initial()
+    * 0 - exit -> System.exit(0)
+    * */
+
+
+    private final DataB dataB = DataB.getDataB();
 
     public void initial() {
         System.out.println(" <1> Sign in");
@@ -26,7 +35,7 @@ public class Login {
 
     public void signUp() {
         Scanner scanner = new Scanner(System.in);
-
+        User userUp = new User();
         System.out.print("Enter first name: ");
         userUp.setFirstName(scanner.nextLine());
         System.out.print("Enter last name: ");
@@ -53,12 +62,13 @@ public class Login {
         userUp.setCountryCode(scanner.nextLine());
         System.out.print("Enter your job: ");
         userUp.setJobs(scanner.nextLine());
-
+        dataB.users.add(userUp);
+        initial();            // go to the main section
     }
 
     public void signIn() {
-        String username = null;
-        String password = null;
+        String username;
+        String password;
         System.out.print("Enter username: ");
         username = new Scanner(System.in).nextLine();
         System.out.print("Enter password: ");
