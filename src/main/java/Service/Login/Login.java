@@ -2,9 +2,14 @@ package Service.Login;
 
 import java.util.Scanner;
 
+import DB.DataB;
 import Object.*;
 
 public class Login {
+
+    private DataB dataB = DataB.getDataB();
+    private User userUp = new User();
+
     public void initial() {
         System.out.println(" <1> Sign in");
         System.out.println(" <2> Sign up");
@@ -19,43 +24,49 @@ public class Login {
         }
     }
 
-    private void signUp() {
+    public void signUp() {
         Scanner scanner = new Scanner(System.in);
-        User user = new User();
+
         System.out.print("Enter first name: ");
-        user.setFirstName(scanner.nextLine());
+        userUp.setFirstName(scanner.nextLine());
         System.out.print("Enter last name: ");
-        user.setLastName(scanner.nextLine());
+        userUp.setLastName(scanner.nextLine());
         System.out.print("Enter fathers name: ");
-        user.setFathersName(scanner.nextLine());
+        userUp.setFathersName(scanner.nextLine());
         System.out.print("Enter email: ");
-        user.setEmail(scanner.nextLine());
+        userUp.setEmail(scanner.nextLine());
         System.out.print("Enter gender: ");
-        user.setGender(scanner.nextLine());
+        userUp.setGender(scanner.nextLine());
         System.out.print("Enter ip address: ");
-        user.setIpAddress(scanner.nextLine());
+        userUp.setIpAddress(scanner.nextLine());
         System.out.print("Enter username: ");
-        user.setUsername(scanner.nextLine());
+        userUp.setUsername(scanner.nextLine());
         System.out.print("Enter password: ");
-        user.setPassword(scanner.nextLine());
+        userUp.setPassword(scanner.nextLine());
         System.out.print("Enter phone number: ");
-        user.setPhoneNumber(scanner.nextLine());
+        userUp.setPhoneNumber(scanner.nextLine());
         System.out.print("Enter address: ");
-        user.setAddress(scanner.nextLine());
+        userUp.setAddress(scanner.nextLine());
         System.out.print("Enter country: ");
-        user.setCountry(scanner.nextLine());
+        userUp.setCountry(scanner.nextLine());
         System.out.print("Enter country code: ");
-        user.setCountryCode(scanner.nextLine());
+        userUp.setCountryCode(scanner.nextLine());
         System.out.print("Enter your job: ");
-        user.setJobs(scanner.nextLine());
+        userUp.setJobs(scanner.nextLine());
+
     }
 
-    private void signIn() {
+    public void signIn() {
         String username = null;
         String password = null;
         System.out.print("Enter username: ");
         username = new Scanner(System.in).nextLine();
         System.out.print("Enter password: ");
         password = new Scanner(System.in).nextLine();
+        for (User user : dataB.users) {
+            if (user.getUsername().equals(username) && user.getPassword().equals(password)) {
+
+            }
+        }
     }
 }

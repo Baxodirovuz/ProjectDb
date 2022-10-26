@@ -6,5 +6,6 @@ public class InitialSection {
         System.out.println(" <2> -> Read user");
         System.out.println(" <3> -> Update user");
         System.out.println(" <4> -> Delete user");
+
     }
 }
