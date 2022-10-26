@@ -4,20 +4,22 @@ import java.util.Scanner;
 
 import DB.DataB;
 import Object.*;
+import Service.InitialSection;
 
 public class Login {
 
     /*
-    * DataBase @dataB object DataB
-    * initial 2 sections
-    * 1 - sign in -> signIn()
-    * 2 - sign up -> signUp()
-    * default repeat method initial()
-    * 0 - exit -> System.exit(0)
-    * */
+     * DataBase @dataB object DataB
+     * initial 2 sections
+     * 1 - sign in -> signIn()
+     * 2 - sign up -> signUp()
+     * default repeat method initial()
+     * 0 - exit -> System.exit(0)
+     * */
 
 
     private final DataB dataB = DataB.getDataB();
+    private final InitialSection initialSection = InitialSection.getSection();
 
     public void initial() {
         System.out.println(" <1> Sign in");
@@ -75,7 +77,7 @@ public class Login {
         password = new Scanner(System.in).nextLine();
         for (User user : dataB.users) {
             if (user.getUsername().equals(username) && user.getPassword().equals(password)) {
-
+                initialSection.section();
             }
         }
     }
